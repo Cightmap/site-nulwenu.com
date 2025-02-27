@@ -2,17 +2,22 @@
 const { title, description, canonicalUrl } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title ? `${title} | Nulwenu.com` : "Nulwenu.com"}</title>
-    <meta name="description" content={description || "Your ultimate resource for online gaming and professional coaching - Nulwenu.com"} />
+    <meta
+      name="description"
+      content={description ||
+        "Your ultimate resource for online gaming and professional coaching - Nulwenu.com"}
+    />
     <link rel="canonical" href={canonicalUrl || "https://nulwenu.com"} />
 
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10TT9862YT"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-10TT9862YT"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -25,14 +30,15 @@ const { title, description, canonicalUrl } = Astro.props;
 
     <style>
       /* General styles for accessibility */
-      html, body {
+      html,
+      body {
         margin: 0;
         width: 100%;
         height: 100%;
         font-family: Arial, sans-serif;
         line-height: 1.8;
         background-color: #292942; /* ✅ Light Gray for readability */
-        color: #1E293B; /* ✅ Dark Gray for contrast (Body Text) */
+        color: #1e293b; /* ✅ Dark Gray for contrast (Body Text) */
       }
 
       /* Main container with improved spacing */
@@ -44,7 +50,7 @@ const { title, description, canonicalUrl } = Astro.props;
 
       main {
         background-color: #fae6d9; /* ✅ White for contrast */
-        color: #1E293B;
+        color: #1e293b;
         max-width: 900px;
         width: 100%;
         margin: 20px auto;
@@ -54,7 +60,8 @@ const { title, description, canonicalUrl } = Astro.props;
       }
 
       /* Header & Footer improvements */
-      header, footer {
+      header,
+      footer {
         width: 100%;
         background-color: #292942; /* ✅ Black background */
         text-align: center;
@@ -64,30 +71,30 @@ const { title, description, canonicalUrl } = Astro.props;
       /* ✅ HEADER TEXT COLOR NOW SEPARATE FROM BODY */
       header h1,
       header nav a {
-        color: #FFFFFF !important; /* ✅ White text, independent of body */
+        color: #ffffff !important; /* ✅ White text, independent of body */
       }
 
       /* ✅ FOOTER TEXT CENTERED & COLOR FIXED */
       footer p {
-        color: #F8FAFC !important; /* ✅ White footer text */
+        color: #f8fafc !important; /* ✅ White footer text */
         text-align: center !important; /* ✅ Always centered */
         margin: 0;
       }
 
       /* ✅ Footer link color independent of body */
       footer a {
-        color: #F8FAFC !important;
+        color: #f8fafc !important;
         text-decoration: none;
       }
 
       footer a:hover {
         text-decoration: underline;
-        color: #EAB308; /* ✅ High-contrast yellow */
+        color: #eab308; /* ✅ High-contrast yellow */
       }
 
       /* ✅ Keeps navigation links independent */
       header nav a {
-        color: #FFFFFF !important;
+        color: #ffffff !important;
         text-decoration: none;
         font-weight: bold;
         margin: 0 15px;
@@ -95,12 +102,14 @@ const { title, description, canonicalUrl } = Astro.props;
 
       header nav a:hover {
         text-decoration: underline;
-        color: #EAB308;
+        color: #eab308;
       }
 
       /* Improved readability for the content */
-      h1, h2, h3 {
-        color: #0F172A; /* ✅ Dark blue for strong headings */
+      h1,
+      h2,
+      h3 {
+        color: #0f172a; /* ✅ Dark blue for strong headings */
       }
 
       p {
@@ -152,12 +161,11 @@ const { title, description, canonicalUrl } = Astro.props;
       .inquire-section {
         margin-top: 40px;
       }
-
     </style>
   </head>
   <body>
     <header>
-      <h1>nulwenu.com</h1>
+      <h1>Nulwenu.com</h1>
       <nav>
         <a href="/">Home</a> | <a href="/blog">Blog</a>
       </nav>
@@ -168,12 +176,19 @@ const { title, description, canonicalUrl } = Astro.props;
     </main>
 
     <footer>
-      <a href="https://www.linkedin.com/company/supercight-domains" 
-         target="_blank" 
-         rel="noopener noreferrer" 
-         class="linkedin-button">
-         <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo" width="24" height="24">
-         Follow us on LinkedIn
+      <a
+        href="https://www.linkedin.com/company/supercight-domains"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="linkedin-button"
+      >
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+          alt="LinkedIn Logo"
+          width="24"
+          height="24"
+        />
+        Follow us on LinkedIn
       </a>
       <p>&copy; 2025 Nulwenu.com</p>
       <p>&copy; 2025 SuperCight Domains</p>
