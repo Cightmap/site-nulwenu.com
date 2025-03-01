@@ -37,11 +37,11 @@ const { title, description, canonicalUrl } = Astro.props;
         height: 100%;
         font-family: Arial, sans-serif;
         line-height: 1.8;
-        background-color: #292942; /* ✅ Light Gray for readability */
-        color: #1e293b; /* ✅ Dark Gray for contrast (Body Text) */
+        background-color: #292942;
+        color: #1e293b; /* Body Text */
       }
 
-      /* Main container with improved spacing */
+      /* Main container */
       body {
         display: flex;
         flex-direction: column;
@@ -49,7 +49,7 @@ const { title, description, canonicalUrl } = Astro.props;
       }
 
       main {
-        background-color: #fae6d9; /* ✅ White for contrast */
+        background-color: #fae6d9; /* main container background color */
         color: #1e293b;
         max-width: 900px;
         width: 100%;
@@ -59,29 +59,29 @@ const { title, description, canonicalUrl } = Astro.props;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       }
 
-      /* Header & Footer improvements */
+      /* Header & Footer */
       header,
       footer {
         width: 100%;
-        background-color: #292942; /* ✅ Black background */
+        background-color: #292942;
         text-align: center;
         padding: 15px 0;
       }
 
-      /* ✅ HEADER TEXT COLOR NOW SEPARATE FROM BODY */
+      /* HEADER TEXT COLOR SEPARATE FROM BODY */
       header h1,
       header nav a {
-        color: #ffffff !important; /* ✅ White text, independent of body */
+        color: #ffffff !important; /* Text color independent of body */
       }
 
-      /* ✅ FOOTER TEXT CENTERED & COLOR FIXED */
+      /* FOOTER TEXT CENTERED */
       footer p {
-        color: #f8fafc !important; /* ✅ White footer text */
-        text-align: center !important; /* ✅ Always centered */
-        margin: 0;
+        color: #f8fafc !important; /* footer text */
+        text-align: center !important; /* centered */
+        margin: 10px 0; /* Adjusted for spacing between elements (jc 2025-03-01) */
       }
 
-      /* ✅ Footer link color independent of body */
+      /* Footer link color independent of body */
       footer a {
         color: #f8fafc !important;
         text-decoration: none;
@@ -89,10 +89,10 @@ const { title, description, canonicalUrl } = Astro.props;
 
       footer a:hover {
         text-decoration: underline;
-        color: #eab308; /* ✅ High-contrast yellow */
+        color: #eab308; /* High-contrast color */
       }
 
-      /* ✅ Keeps navigation links independent */
+      /* Keeps navigation links independent */
       header nav a {
         color: #ffffff !important;
         text-decoration: none;
@@ -109,13 +109,18 @@ const { title, description, canonicalUrl } = Astro.props;
       h1,
       h2,
       h3 {
-        color: #0f172a; /* ✅ Dark blue for strong headings */
+        color: #0f172a; /* Dark blue for strong headings */
       }
 
       p {
         font-size: 18px;
         text-align: justify;
         margin-bottom: 15px;
+      }
+
+      /* Center only privacy and TOC h1 (jc_2025-03-01) */
+      .policy-page h1 {
+        text-align: center;
       }
 
       /* Add spacing and visual improvements */
@@ -190,8 +195,12 @@ const { title, description, canonicalUrl } = Astro.props;
         />
         Follow us on LinkedIn
       </a>
-      <p>&copy; 2025 Nulwenu.com</p>
-      <p>&copy; 2025 SuperCight Domains</p>
+      <p>
+        <a href="/privacy-policy">Privacy Policy</a> | <a
+          href="/terms-and-conditions">Terms and Conditions</a
+        >
+      </p>
+      <p>&copy; 2025 Nulwenu.com | &copy; 2025 SuperCight Domains</p>
     </footer>
   </body>
 </html>
