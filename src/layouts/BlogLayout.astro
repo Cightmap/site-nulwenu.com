@@ -1,5 +1,5 @@
 ---
-const { title, description, date } = Astro.props;
+const { title, description, date, prevPost, nextPost } = Astro.props;
 ---
 
 <!doctype html>
@@ -14,8 +14,8 @@ const { title, description, date } = Astro.props;
     <style>
       /* Apply better background and text contrast */
       body {
-        background-color: #292942; /* ✅ Light Gray for readability */
-        color: #1e293b; /* ✅ Dark Gray for contrast */
+        background-color: #292942; /* Light Gray for readability */
+        color: #1e293b; /* Dark Gray for contrast */
         font-family: Arial, sans-serif;
         line-height: 1.8;
         margin: 0;
@@ -24,7 +24,7 @@ const { title, description, date } = Astro.props;
 
       /* Improve readability for blog content */
       main {
-        background-color: #fae6d9; /* ✅ White for content contrast */
+        background-color: #fae6d9; /* White for content contrast */
         color: #1e293b;
         max-width: 900px;
         margin: 20px auto;
@@ -36,16 +36,16 @@ const { title, description, date } = Astro.props;
       /* Header and Footer adjustments */
       header,
       footer {
-        background-color: #292942; /* ✅ Deep Navy for contrast */
+        background-color: #292942; /* Deep Navy for contrast */
         text-align: center;
         padding: 15px 0;
       }
 
-      /* ✅ HEADER/FOOTER FONT COLOR FIX */
+      /* HEADER/FOOTER FONT COLOR FIX */
       header h1,
       header nav a,
       footer p {
-        color: #f8fafc !important; /* ✅ White text, independent of body */
+        color: #f8fafc !important; /* White text, independent of body */
       }
 
       header nav a {
@@ -56,13 +56,13 @@ const { title, description, date } = Astro.props;
 
       header nav a:hover {
         text-decoration: underline;
-        color: #eab308; /* ✅ High-contrast yellow hover */
+        color: #eab308; /* High-contrast yellow hover */
       }
 
       h1 {
         font-size: 28px;
         margin-bottom: 10px;
-        color: #0f172a; /* ✅ Dark Blue */
+        color: #0f172a; /* Dark Blue */
         text-align: center;
       }
 
@@ -82,13 +82,13 @@ const { title, description, date } = Astro.props;
       }
 
       footer a {
-        color: #f8fafc !important; /* ✅ White text */
+        color: #f8fafc !important; /* White text */
         text-decoration: none;
       }
 
       footer a:hover {
         text-decoration: underline;
-        color: #eab308; /* ✅ High-contrast yellow hover */
+        color: #eab308; /* High-contrast yellow hover */
       }
 
       .linkedin-button {
@@ -96,6 +96,46 @@ const { title, description, date } = Astro.props;
         align-items: center;
         gap: 8px;
         margin: 15px 0; /* Adds space before and after the button */
+      }
+
+      /* Styles for navigation buttons */
+      .blog-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 30px;
+        max-width: 100%;
+        padding: 0 10px;
+      }
+      .blog-nav a,
+      .blog-nav .disabled {
+        flex: 1;
+        max-width: 45%;
+        box-sizing: border-box;
+        padding: 10px 20px;
+        text-align: center;
+        background-color: #007bff;
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+      .blog-nav a:hover {
+        background-color: #0056b3;
+      }
+      .blog-nav .label {
+        font-weight: bold;
+        margin-right: 8px;
+      }
+      .blog-nav .title {
+        font-weight: normal;
+        font-style: italic;
+      }
+      .blog-nav .disabled {
+        background-color: #d3d3d3;
+        color: #666;
+        pointer-events: none;
       }
     </style>
   </head>
@@ -109,6 +149,28 @@ const { title, description, date } = Astro.props;
 
     <main>
       <slot />
+      <div class="blog-nav">
+        {
+          prevPost ? (
+            <a href={prevPost.url}>
+              <span class="label">Previous:</span>
+              <span class="title">{prevPost.title}</span>
+            </a>
+          ) : (
+            <span class="disabled">Previous</span>
+          )
+        }
+        {
+          nextPost ? (
+            <a href={nextPost.url}>
+              <span class="label">Next:</span>
+              <span class="title">{nextPost.title}</span>
+            </a>
+          ) : (
+            <span class="disabled">Next</span>
+          )
+        }
+      </div>
     </main>
 
     <footer>
@@ -125,13 +187,13 @@ const { title, description, date } = Astro.props;
           height="24"
         />
         Follow us on LinkedIn
-        <p>
-          <a href="/privacy-policy">Privacy Policy</a> | <a
-            href="/terms-and-conditions">Terms and Conditions</a
-          >
-        </p>
-        <p>&copy; 2025 Nulwenu.com | &copy; 2025 SuperCight Domains</p>
       </a>
+      <p>
+        <a href="/privacy-policy">Privacy Policy</a> | <a
+          href="/terms-and-conditions">Terms and Conditions</a
+        >
+      </p>
+      <p>© 2025 Nulwenu.com | © 2025 SuperCight Domains</p>
     </footer>
   </body>
 </html>
