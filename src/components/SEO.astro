@@ -1,0 +1,15 @@
+---
+const { title, description, pubDate, author, image, keywords } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "datePublished": pubDate,
+  "author": { "@type": "Person", "name": author.split(' for')[0] },
+  "publisher": { "@type": "Organization", "name": author.split('via ')[1] || 'Nulwenu.com' },
+  "image": image,
+  "keywords": keywords.join(', ')
+})} />

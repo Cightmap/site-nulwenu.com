@@ -1,0 +1,18 @@
+{
+  "files.associations": {
+    "*.mdx": "mdx",
+    "*.astro": "astro"
+  },
+  "editor.formatOnSave": true,
+  "[mdx]": {
+    "editor.defaultFormatter": "unifiedjs.vscode-mdx",
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "never"
+    }
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "mdx.experimentalLanguageServer": false,
+  "mdx.validate": false
+}

@@ -4,9 +4,16 @@ import sitemap from '@astrojs/sitemap';
 import remarkGfm from 'remark-gfm';
 
 export default defineConfig({
-  site: 'https://nulwenu.com',
+  site: 'https://nulwenu.com/',
   integrations: [mdx(), sitemap()],
   markdown: {
-    remarkPlugins: [remarkGfm] // Enables better Markdown support (tables, strikethrough, etc.)
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [['rehype-raw', { allowDangerousHtml: true }]]
   }
 });
+
+// astro.config.mjs
+export default {
+  trailingSlash: 'always', // Ensures all generated URLs have trailing slashes
+}; 
+

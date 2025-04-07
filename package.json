@@ -12,6 +12,7 @@
     "@astrojs/mdx": "^4.0.8",
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^5.2.5",
+    "rehype-raw": "^7.0.0",
     "remark-gfm": "^4.0.0"
   }
 }
